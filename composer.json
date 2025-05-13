@@ -28,7 +28,7 @@
     },
     "scripts": {
         "test:types": "./vendor/bin/phpstan analyse",
-        "test:pest": "./vendor/bin/pest",
+        "test:pest": "./vendor/bin/pest --parallel",
         "test": [
             "@test:types",
             "@test:pest"
