@@ -1,0 +1,50 @@
+{
+    "name": "uvi-sound/uvi-notification",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yanntyb-uvi",
+            "email": "155440720+yanntyb-uvi@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "UVI\\Notification\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UVI\\Notification\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "illuminate/support": "^11.0 || ^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.3",
+        "larastan/larastan": "^3.0",
+        "pestphp/pest": "^3.8"
+    },
+    "scripts": {
+        "test:types": "./vendor/bin/phpstan analyse",
+        "test:pest": "./vendor/bin/pest",
+        "test": [
+            "@test:types",
+            "@test:pest"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "UVI\\Notification\\UviNotificationServiceProvider"
+            ]
+        }
+    },
+    "version": "1.0"
+}
