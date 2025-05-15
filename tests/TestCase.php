@@ -15,9 +15,4 @@ class TestCase extends BaseTestCase
             UviNotificationServiceProvider::class,
         ];
     }
-
-    protected function getEnvironmentSetUp($app): void
-    {
-
-    }
 }

@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace UVI\Notification\Tests;
 
-use UVI\Notification\NotificationDispatcher;
+use UVI\Notification\UviNotificationDispatcher;
 
-describe( NotificationDispatcher::class, function () {
+describe(UviNotificationDispatcher::class, function () {
     it('should have a to method', function () {
-        expect(NotificationDispatcher::class)->toHaveMethod('to');
+        expect(UviNotificationDispatcher::class)->toHaveMethod('to');
     });
     it('should have a send method', function () {
-        expect(NotificationDispatcher::class)->toHaveMethod('send');
+        expect(UviNotificationDispatcher::class)->toHaveMethod('send');
     });
     it('may have a base notification', function () {
-        expect(NotificationDispatcher::class)->toHaveMethod('getBaseNotification');
+        expect(UviNotificationDispatcher::class)->toHaveMethod('getBaseNotification');
     });
 });
-

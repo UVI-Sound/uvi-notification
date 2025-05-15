@@ -24,11 +24,13 @@
     "require-dev": {
         "orchestra/testbench": "^10.3",
         "larastan/larastan": "^3.0",
-        "pestphp/pest": "^3.8"
+        "pestphp/pest": "^3.8",
+        "laravel/pint": "^1.22"
     },
     "scripts": {
         "test:types": "./vendor/bin/phpstan analyse",
         "test:pest": "./vendor/bin/pest --parallel",
+        "lint": "./vendor/bin/pint",
         "test": [
             "@test:types",
             "@test:pest"
@@ -43,7 +45,10 @@
         "laravel": {
             "providers": [
                 "UVI\\Notification\\UviNotificationServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "UVI\\Notification\\UviNotificationService": "UVI\\Notification\\Facades\\Notification"
+            }
         }
     },
     "version": "1.0"

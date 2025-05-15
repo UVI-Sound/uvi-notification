@@ -4,8 +4,53 @@ declare(strict_types=1);
 
 namespace UVI\Notification\Google;
 
-use UVI\Notification\Contracts\UviNotification;
 
-class BaseGoogleChatNotification implements GoogleChatNotification, UviNotification
+abstract class BaseGoogleChatNotification implements GoogleChatNotification
 {
+    public function __construct(public string $title, public string $message, public string $space) {}
+
+    public function title(): string
+    {
+        return $this->title;
+    }
+
+    public function message(): string
+    {
+        return $this->message;
+    }
+
+    public function space(): string
+    {
+        return $this->space;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function toArray(): array
+    {
+        return [
+            'cardsV2' => [
+                'cardId' => fake()->uuid(),
+                'card' => [
+                    'header' => [
+                        'title' => $this->title(),
+                        'imageUrl' => 'https://developers.google.com/chat/images/quickstart-app-avatar.png',
+                        'imageType' => 'CIRCLE',
+                    ],
+                    'sections' => [
+                        'collapsible' => false,
+                        'uncollapsibleWidgetsCount' => 1,
+                        'widgets' => [
+                            [
+                                'textParagraph' => [
+                                    'text' => $this->message(),
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+    }
 }

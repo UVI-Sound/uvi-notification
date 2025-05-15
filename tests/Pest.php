@@ -11,8 +11,12 @@
 |
 */
 
+use Illuminate\Support\Facades\Notification;
 use UVI\Notification\Tests\TestCase;
 
 pest()
     ->extend(TestCase::class)
-    ->in('Feature');
+    ->beforeEach(function () {
+        Notification::fake();
+    })
+    ->in('Feature', 'Unit');

@@ -1,33 +1,17 @@
-On veut pouvoir envoyer des notifications dans des channels différents
-exemple: Google chat, Mail, Slack, ...
+Ce package a pour but de centraliser le processus de creation et envoie de notification.
 
-Pour qu'une notification puisse être envoyée dans un channel, elle doit implementer l'interface de ce channel
-exemple: ToGoogleChat, ToMail, ToSlack
 
-Fichier config:
-Google chat => on veut pouvoir configurer des channel
-
-Propriétés: title, text
+Utilisation:
 
 ``` php
-$notification = new class implements ToGoogleChat, ToZendesk {
-    public string $title = 'Titre';
-    public string $content = 'Contenue';
+use UVI\Notification\Facades\Notification;
 
-    public function toGoogleChat(): GoogleChatNotification {
-        return new GoogleChatNotification()
-            ->title($this->title)
-            ->content($this->content)
+$notification = new class implements ToGoogleChat, ToZendesk {
+    public function toGoogleChat(AnonymousNotifiable $notifiable): GoogleChatNotification
+    {
+        return new BaseGoogleChatNotification('title', 'content', 'space webhook url');
     }
-    
-    public function ToZendesk(): ZendeskNotification {
-        return new ZendeskNotification()
-            ->title($this->title)
-            ->content($this->content)
-    }
-    
 }
 
-Notifications::send($notification)->to(Chanels::GoogleChat)
-Notifications::send($notification)->to(Chanels::Zendesk)
+Notification::send($notification, new GoogleChatChannel);
 ``` 

@@ -2,11 +2,10 @@
 
 namespace UVI\Notification\Tests;
 
-use UVI\Notification\NotificationService;
+use UVI\Notification\UviNotificationService;
 
-describe( NotificationService::class, function () {
+describe(UviNotificationService::class, function () {
     it('should have a send method', function () {
-        expect(NotificationService::class)->toHaveMethod('send');
+        expect(UviNotificationService::class)->toHaveMethod('send');
     });
 });
-
