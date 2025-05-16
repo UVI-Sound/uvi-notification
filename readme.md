@@ -6,7 +6,7 @@ Utilisation:
 ``` php
 use UVI\Notification\Facades\Notification;
 
-$notification = new class implements ToGoogleChat, ToZendesk {
+$notification = new class implements ToGoogleChat {
     public function toGoogleChat(AnonymousNotifiable $notifiable): GoogleChatNotification
     {
         return new BaseGoogleChatNotification('title', 'content', 'space webhook url');

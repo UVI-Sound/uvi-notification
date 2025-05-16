@@ -5,9 +5,6 @@ namespace UVI\Notification\Tests\Fixtures\DummyChannel;
 use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Notifications\Notification;
 use UVI\Notification\Contracts\NotificationChannelContract;
-use UVI\Notification\Google\GoogleChatChannel;
-use UVI\Notification\Google\GoogleChatNotification;
-use UVI\Notification\Google\ToGoogleChat;
 
 class DummyChannel implements NotificationChannelContract
 {
