@@ -45,10 +45,7 @@
         "laravel": {
             "providers": [
                 "UVI\\Notification\\UviNotificationServiceProvider"
-            ],
-            "aliases": {
-                "UVI\\Notification\\UviNotificationService": "UVI\\Notification\\Facades\\Notification"
-            }
+            ]
         }
     },
     "minimum-stability": "stable"
