@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace UVI\Notification\Google;
 
 
+use Illuminate\Support\Str;
+
 abstract class BaseGoogleChatNotification implements GoogleChatNotification
 {
     public function __construct(public string $title, public string $message, public string $space) {}
@@ -31,7 +33,7 @@ abstract class BaseGoogleChatNotification implements GoogleChatNotification
     {
         return [
             'cardsV2' => [
-                'cardId' => fake()->uuid(),
+                'cardId' => Str::uuid7()->toString(),
                 'card' => [
                     'header' => [
                         'title' => $this->title(),
