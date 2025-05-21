@@ -26,9 +26,6 @@ abstract class BaseGoogleChatNotification implements GoogleChatNotification
         return $this->space;
     }
 
-    /**
-     * @return mixed[]
-     */
     public function toArray(): array
     {
         return [
@@ -37,12 +34,9 @@ abstract class BaseGoogleChatNotification implements GoogleChatNotification
                 'card' => [
                     'header' => [
                         'title' => $this->title(),
-                        'imageUrl' => 'https://developers.google.com/chat/images/quickstart-app-avatar.png',
-                        'imageType' => 'CIRCLE',
                     ],
                     'sections' => [
                         'collapsible' => false,
-                        'uncollapsibleWidgetsCount' => 1,
                         'widgets' => [
                             [
                                 'textParagraph' => [
